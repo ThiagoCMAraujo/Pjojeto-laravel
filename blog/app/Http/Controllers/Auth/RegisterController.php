@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
     public function register()
     {
         return view('auth.register');
@@ -25,11 +29,12 @@ class RegisterController extends Controller
 
         User::create([
             'name' => $request->name,
-            'email'=> $request->email,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        auth()->attempt($request->only('email', 'password'));
+
         return redirect()->route('dashboard');
     }
-
 }
