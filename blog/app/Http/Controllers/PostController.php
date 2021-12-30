@@ -10,14 +10,16 @@ class PostController extends Controller
 {
     public function postsall()
     {
-        return view('posts.postsall');
+        $posts = Post::paginate(2);
+
+        return view('posts.postsall', ['posts' => $posts]);
     }
 
     public function store(Request $request)
     {
 
         $this->validate($request, [
-            'description' => 'min:30',
+            'description' => 'min:10|max:2000',
         ]);
 
         // dd(auth()->user()->id);

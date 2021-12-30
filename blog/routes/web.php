@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,8 @@ Route::post('/login' , [LoginController::class, 'store']);
 
 Route::get('/allposts' , [PostController::class, 'postsall'])->name('postsall');
 Route::post('/allposts' , [PostController::class, 'store'])->name('register_post');
+
+Route::post('/allposts{post}/likes' , [PostLikeController::class, 'store'])->name('posts.likes');
+
+Route::delete('/allposts{post}/likes' , [PostLikeController::class, 'destroy'])->name('posts.likes');
+

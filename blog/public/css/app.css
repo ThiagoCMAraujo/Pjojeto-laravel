@@ -575,6 +575,12 @@ select {
 .mb-5 {
   margin-bottom: 1.25rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .inline {
   display: inline;
 }
@@ -667,6 +673,9 @@ select {
 .font-medium {
   font-weight: 500;
 }
+.font-bold {
+  font-weight: 700;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -674,5 +683,13 @@ select {
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
