@@ -10,7 +10,8 @@ class PostController extends Controller
 {
     public function postsall()
     {
-        $posts = Post::paginate(2);
+        $posts = Post::orderBy('created_at', 'desc')->with(['user', 'likes'])->paginate(2);
+        // $posts = Post::latest()->with(['user', 'likes'])->paginate(2);
 
         return view('posts.postsall', ['posts' => $posts]);
     }
@@ -29,7 +30,7 @@ class PostController extends Controller
             'description' => $request->description,
         ]);
 
-         $post->save();
+        $post->save();
 
         //  $request->user()->posts()->create([
         //      'description' => $request->description,
@@ -37,6 +38,20 @@ class PostController extends Controller
 
         // $request->user()->posts()->create($request->only('description'));
 
-         return back();
+        return back();
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post);
+        $post->delete();
+        return back();
+    }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post,
+        ]);
     }
 }
