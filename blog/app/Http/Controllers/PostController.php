@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth'])->only('store', 'destroy');
+    }
     public function postsall()
     {
         $posts = Post::orderBy('created_at', 'desc')->with(['user', 'likes'])->paginate(2);
