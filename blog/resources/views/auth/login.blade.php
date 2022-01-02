@@ -25,7 +25,7 @@
 
                 <div class="mb-4">
                     <label for="">Password</label>
-                    <input type="password" placeholder="*******" class="bg-gray-100 border-2 w-full p-4 rounded-lg"
+                    <input type="password" placeholder="*******" autocomplete="on" class="bg-gray-100 border-2 w-full p-4 rounded-lg"
                         name="password" id="password">
 
                     @error('password')

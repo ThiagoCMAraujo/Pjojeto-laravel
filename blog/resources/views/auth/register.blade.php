@@ -30,7 +30,7 @@
 
                 <div class="mb-4">
                     <label for="">Password</label>
-                    <input type="password" placeholder="*******" class="bg-gray-100 border-2 w-full p-4 rounded-lg"
+                    <input type="password" placeholder="*******" autocomplete="on" class="bg-gray-100 border-2 w-full p-4 rounded-lg"
                         name="password" id="password">
 
                         @error('password')
@@ -43,7 +43,7 @@
 
                 <div class="mb-4">
                     <label for="password_confirmation">Confirm Your Password</label>
-                    <input type="password" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="*******"
+                    <input type="password" autocomplete="on" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="*******"
                         name="password_confirmation" id="password_confirmation">
                 </div>
 
